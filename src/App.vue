@@ -1,23 +1,24 @@
 <template>
-  <Menu msg="Welcome to Yous"/>
+  <Workspace />
 </template>
 
 <script>
-import Menu from './components/Menu.vue'
-
+import Workspace from "./components/Wokspace.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Menu
-  }
-}
+    Workspace,
+  },
+};
 </script>
 
 <style lang="scss">
   #app {
-    height: 100%;
-    text-align: center;
-    background: $backq;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: $material_green;
   }
 </style>

@@ -3069,6 +3069,11 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.19.tgz#feeb5aae89020bb389e1f63669a5ed490e391caa"
   integrity sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==
 
+currency-flags@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/currency-flags/-/currency-flags-3.3.0.tgz#5c6bf41a5831c1f7bd8d724bb5d76d34fe00c388"
+  integrity sha512-eT6DmKs0r1BRge2JE2LTQMbPEkZoAy5eOfH1L2xAW8H6rX51aUO3CHIWauORbLWwbe9yOwMd5OFau3OcxHw8gA==
+
 cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"

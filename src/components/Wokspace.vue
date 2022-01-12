@@ -1,25 +1,25 @@
 <template>
   <div class="workspace">
-    <h2>Scaling-googles</h2>
-    <CurrencyField />
+    <currency-field />
   </div>
 </template>
 
 <script>
-  import CurrencyField from './CurrencyField/CurrencyField.vue';
+import CurrencyField from "./CurrencyField/CurrencyField.vue";
 
-  export default {
+export default {
   components: { CurrencyField },
-    name: "Workspace",
-    props: {},
-  };
+  name: "MainWorkspace",
+  props: {},
+};
 </script>
 
 <style lang="scss" scoped>
-  .workspace {
-    width: 66vw;
-    height: 33vh;
-    background-color: white;
-    border-radius: 5px;
-  }
+.workspace {
+  min-width: 16rem;
+  width: 66vw;
+  height: 33vh;
+  background-color: white;
+  border-radius: 5px;
+}
 </style>

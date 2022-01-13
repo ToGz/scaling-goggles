@@ -1,7 +1,13 @@
 <template>
-  <div class="currencyInfo">
-    <div class="currency-flag" :class="currencyFlagDescriptor"></div>
-    <div>
+  <div class="CurrencyInfo">
+    <div class="flag container">
+      <!-- currency-flag class required by the currency-flags package -->
+      <div
+        class="currency-flag"
+        :class="'currency-flag-' + currencyCode.toLowerCase()"
+      ></div>
+    </div>
+    <div class="description container">
       {{ this.currencyCode }} <br />
       {{ this.currencyName }}
     </div>
@@ -17,26 +23,29 @@ export default {
     currencyCode: String,
     currencyName: String,
   },
-  data() {
-    return {
-      currencyFlagDescriptor:
-        "currency-flag-" + this.currencyCode.toLowerCase(),
-    };
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-.currency-flag {
+.CurrencyInfo {
   display: inline-flex;
   flex-direction: row;
+}
 
-  height: 2.5rem;
-  width: 2.5rem;
+.currency-flag {
+  height: 2rem;
+  width: 3rem;
 
-  border-color: gray;
+  border-color: gainsboro;
   border-style: solid;
   border-width: 1px;
-  border-radius: 50%;
+  border-radius: 5px;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 0.25rem;
 }
 </style>

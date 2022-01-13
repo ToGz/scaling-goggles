@@ -1,6 +1,6 @@
 <template>
   <div class="currencyField">
-    <currency-info currencyCode="PLN" currencyName="Polish Zloty" />
+    <currency-info :currencyCode="currencyCode" :currencyName="currencyName" />
     <div class="value-field">196.15</div>
   </div>
 </template>
@@ -11,6 +11,12 @@ export default {
   components: { CurrencyInfo },
   name: "CurrencyField",
   props: {},
+  data() {
+    return {
+      currencyCode: "PLN",
+      currencyName: "Polish Zloty",
+    }
+  }
 };
 </script>
 
@@ -19,18 +25,18 @@ export default {
   display: inline-flex;
   justify-content: space-between;
 
-  //min-width: 15rem;
-  //height: 3rem;
-
   margin: 1px;
 
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: gray;
+  // border-color: black;
+  // border-width: 1px;
+  // border-style: solid;
+  // border-radius: 5px;
+  // border-color: gray;
 }
 
 .value-field {
+  text-align: right;
+  width: 10rem;
+  padding: 0.25rem;
 }
 </style>

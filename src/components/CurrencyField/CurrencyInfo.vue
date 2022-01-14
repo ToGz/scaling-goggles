@@ -1,6 +1,6 @@
 <template>
   <div class="CurrencyInfo">
-    <div class="flag container">
+    <div class="container">
       <!-- currency-flag class required by the currency-flags package -->
       <div
         class="currency-flag"
@@ -8,17 +8,27 @@
       ></div>
     </div>
     <div class="description container">
-      {{ this.currencyCode }} <br />
-      {{ this.currencyName }}
+      <div class="code">
+        {{ this.currencyCode }}
+        <!-- Icons will need to be moved to assets and switched into SVGs - they didn't work correctly, additional configuration needed -->
+        <img src="./outline_keyboard_arrow_down_black_24dp.png" />
+      </div>
+      <div>
+        {{ this.currencyName }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import "/node_modules/currency-flags/dist/currency-flags.css";
+// import KeyboardArrowDown from '/src/assets/icons/keyboard_arrow_down_black_24dp.svg';
 
 export default {
   name: "CurrencyInfo",
+  // components: {
+  //   KeyboardArrowDown
+  // },
   props: {
     currencyCode: String,
     currencyName: String,
@@ -26,10 +36,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .CurrencyInfo {
   display: inline-flex;
-  flex-direction: row;
+}
+
+.code {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.description {
+  display: flexbox;
+  flex-direction: column;
 }
 
 .currency-flag {

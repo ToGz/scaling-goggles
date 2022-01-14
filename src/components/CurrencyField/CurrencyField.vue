@@ -10,13 +10,10 @@ import CurrencyInfo from "./CurrencyInfo.vue";
 export default {
   components: { CurrencyInfo },
   name: "CurrencyField",
-  props: {},
-  data() {
-    return {
-      currencyCode: "PLN",
-      currencyName: "Polish Zloty",
-    }
-  }
+  props: {
+      currencyCode: String,
+      currencyName: String,
+  },
 };
 </script>
 

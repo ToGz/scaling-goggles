@@ -2,6 +2,7 @@
   <div class="currencyField">
     <currency-info :currencyCode="currencyCode" :currencyName="currencyName" />
     <div class="value-field">{{Number(Math.round(currencyAmount + 'e+2') + 'e-2')}}</div>
+    <button @click="() => { $emit('field:remove') }">Remove</button>
   </div>
 </template>
 

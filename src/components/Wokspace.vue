@@ -20,6 +20,7 @@
         :currencyCode="item"
         :currencyName="availableCurrencies[item]?.description ?? ''"
         :currencyAmount="currencyRates[item] * baseCurrencyAmount"
+        v-on:field:remove="() => { this.selectedCurrencies.splice(item.index, 1) }"
       />
     </div>
         <Popup

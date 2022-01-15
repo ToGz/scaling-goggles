@@ -17,11 +17,11 @@ export default {
 <style lang="scss" scoped>
 input {
   outline: 0;
-  border-width: 0 0 2px;
-  border-color: blue;
+  border-width: 0 0 1px;
+  border-color: $material_orange_light;
   text-align: right;
 }
 input:focus {
-  border-color: green;
+  border-color: $material_orange_dark;
 }
 </style>

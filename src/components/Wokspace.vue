@@ -114,7 +114,7 @@ export default {
 }
 
 .divider {
-  border-bottom: 1px solid $material_green_light;
+  border-bottom: 1px dotted $material_green_light;
   width: 95%;
   margin: auto;
 }

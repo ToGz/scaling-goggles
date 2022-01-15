@@ -9,7 +9,8 @@
       />
       <CurrencyInputField v-model:amount="baseCurrencyAmount" />
 
-      <button @click="() => TogglePopup('baseCurrencyTrigger')">Open Popup</button>
+      <button @click="() => TogglePopup('baseCurrencyTrigger')">Change Base</button>
+      <button @click="() => TogglePopup('addCurrencyTrigger')">Add Currecy</button>
     </div>
     
     <div class="divider"></div>
@@ -27,7 +28,15 @@
         :availableCurrencies="availableCurrencies"
         v-on:currency:selected="(currency) => { this.baseCurrencyCode = currency }"
       />
+       <Popup
+        v-if="popupTriggers.addCurrencyTrigger"
+        :TogglePopup="() => TogglePopup('addCurrencyTrigger')"
+        :availableCurrencies="availableCurrencies"
+        v-on:currency:selected="(currency) => { this.selectedCurrencies.push(currency) }"
+      />
   </div>
+
+  
 </template>
 
 <script>
@@ -82,6 +91,7 @@ export default {
   setup() {
     const popupTriggers = ref({
       baseCurrencyTrigger: false,
+      addCurrencyTrigger: false
     });
     const TogglePopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];

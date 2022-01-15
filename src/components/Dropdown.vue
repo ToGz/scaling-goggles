@@ -7,6 +7,7 @@
             searchable
             close-on-select
             clear-on-select
+            v-on:closed="() => { $emit('currency:selected', value.code) }"
         />
     </div>
 </template>

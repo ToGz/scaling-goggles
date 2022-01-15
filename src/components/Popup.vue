@@ -1,19 +1,32 @@
 <template>
   <div class="popup">
     <div class="popup-inner">
-      <slot />
-      <button class="popup-close" @click="TogglePopup()">Close Popup</button>
+      <Dropdown 
+        :possibleCurrencies="availableCurrencies" 
+        v-on:currency:selected="(currencyCode) => {passEvent(currencyCode)}" 
+      />
+      <button class="popup-close" @click="TogglePopup()">Close</button>
+      <button class="popup-close" @click="TogglePopup(), Submitt()">Ok</button>
     </div>
   </div>
 </template>
 
 <script>
+import Dropdown from "./Dropdown.vue";
+
 export default {
-  props: ["TogglePopup"],
-   methods: {
-    passEvent() {
-      this.$emit("changeTitle", "Awesome ");
+  props: ["TogglePopup", "availableCurrencies"],
+  components: { Dropdown },
+  methods: {
+    selectedCode: String,
+
+    passEvent(code) {
+      this.selectedCode = code;
     },
+
+    Submitt() {
+      if(this.selectedCode != null) this.$emit('currency:selected', this.selectedCode);
+    }
   },
 };
 </script>

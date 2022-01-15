@@ -22,14 +22,7 @@ export default {
 .currencyField {
   display: inline-flex;
   justify-content: space-between;
-
   margin: 1px;
-
-  // border-color: black;
-  // border-width: 1px;
-  // border-style: solid;
-  // border-radius: 5px;
-  // border-color: gray;
 }
 
 .value-field {

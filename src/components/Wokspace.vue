@@ -1,11 +1,12 @@
 <template>
   <div class="workspace">
-    <currency-field
-      :currencyCode="baseCurrencyCode"
-      :currencyName="availableCurrencies[baseCurrencyCode]?.description ?? ''"
-      :currencyAmount="baseCurrencyAmount"
-    />
-
+    <div style="display: inline-flex; justify-content: space-between; margin: 1px;">
+      <currency-info
+        :currencyCode="baseCurrencyCode"
+        :currencyName="availableCurrencies[baseCurrencyCode]?.description ?? ''"
+      />
+      <CurrencyInputField v-model:amount="baseCurrencyAmount" />
+    </div>
     <!-- <h1>Vue Popups</h1>
     <button @click="() => TogglePopup('buttonTrigger')">Open Popup</button>
     <Popup
@@ -29,10 +30,12 @@
 <script>
 //import { ref } from "vue";
 import CurrencyField from "./CurrencyField/CurrencyField.vue";
+import CurrencyInfo from "./CurrencyField/CurrencyInfo.vue";
+import CurrencyInputField from "./CurrencyField/CurrencyInputField.vue";
 //import Popup from "./Popup.vue";
 
 export default {
-  components: { CurrencyField }, //Popup
+  components: { CurrencyField, CurrencyInfo, CurrencyInputField }, //Popup
   name: "MainWorkspace",
   props: {},
   data: function () {
@@ -47,10 +50,10 @@ export default {
 
   created() {
     (this.baseCurrencyCode = "EUR"),
-    (this.baseCurrencyAmount = 10),
-    this.getAvailableSymbols().then(
-      (data) => (this.availableCurrencies = data.symbols)
-    );
+      (this.baseCurrencyAmount = 10),
+      this.getAvailableSymbols().then(
+        (data) => (this.availableCurrencies = data.symbols)
+      );
   },
 
   watch: {

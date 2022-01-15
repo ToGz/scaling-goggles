@@ -25,7 +25,7 @@ export default {
     },
 
     Submitt() {
-      if(this.selectedCode != null) this.$emit('currency:selected', this.selectedCode);
+      if(this.selectedCode != undefined) this.$emit('currency:selected', this.selectedCode);
     }
   },
 };

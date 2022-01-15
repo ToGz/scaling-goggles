@@ -15,12 +15,12 @@
     
     <div class="divider"></div>
 
-    <div class="rates" v-for="item in selectedCurrencies" :key="item">
+    <div class="rates" v-for="(item, index) in selectedCurrencies" :key="item">
       <currency-field
         :currencyCode="item"
         :currencyName="availableCurrencies[item]?.description ?? ''"
         :currencyAmount="currencyRates[item] * baseCurrencyAmount"
-        v-on:field:remove="() => { this.selectedCurrencies.splice(item.index, 1) }"
+        v-on:field:remove="removeField(index)"
       />
     </div>
         <Popup
@@ -58,6 +58,10 @@ export default {
       selectedCurrencies: ["CAD", "USD", "HUF", "PLN"],
       availableCurrencies: [],
       currencyRates: [],
+
+      removeField: (item) => {
+        this.selectedCurrencies.splice(item, 1)
+      }
     };
   },
 

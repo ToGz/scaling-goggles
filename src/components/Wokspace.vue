@@ -14,8 +14,10 @@
         v-if="popupTriggers.baseCurrencyTrigger"
         :TogglePopup="() => TogglePopup('baseCurrencyTrigger')"
       >
-        <h2>My Button Popup</h2>
+        <Dropdown :possibleCurrencies="availableCurrencies" />
       </Popup>
+
+      
     </div>
     
     <div class="divider"></div>
@@ -36,9 +38,10 @@ import CurrencyField from "./CurrencyField/CurrencyField.vue";
 import CurrencyInfo from "./CurrencyField/CurrencyInfo.vue";
 import CurrencyInputField from "./CurrencyField/CurrencyInputField.vue";
 import Popup from "./Popup.vue";
+import Dropdown from './Dropdown.vue';
 
 export default {
-  components: { CurrencyField, CurrencyInfo, CurrencyInputField, Popup }, //Popup
+  components: { CurrencyField, CurrencyInfo, CurrencyInputField, Popup, Dropdown }, //Popup
   name: "MainWorkspace",
   props: {},
   data: function () {

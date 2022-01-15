@@ -12,7 +12,8 @@
     "currency-flags": "^3.3.0",
     "sass": "^1.47.0",
     "sass-loader": "^10",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-next-select": "^2.10.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

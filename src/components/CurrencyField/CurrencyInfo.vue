@@ -1,6 +1,6 @@
 <template>
   <div class="CurrencyInfo">
-    <div class="container">
+    <div class="flag container">
       <!-- currency-flag class required by the currency-flags package -->
       <div
         class="currency-flag"
@@ -8,14 +8,10 @@
       ></div>
     </div>
     <div class="description container">
-      <div class="code">
-        {{ this.currencyCode }}
+        {{ this.currencyCode }} <br/>
         <!-- Icons will need to be moved to assets and switched into SVGs - they didn't work correctly, additional configuration needed -->
-        <img src="./outline_keyboard_arrow_down_black_24dp.png" />
-      </div>
-      <div>
+        <!-- <img src="./outline_keyboard_arrow_down_black_24dp.png" /> -->
         {{ this.currencyName }}
-      </div>
     </div>
   </div>
 </template>
@@ -41,15 +37,9 @@ export default {
   display: inline-flex;
 }
 
-.code {
-  display: inline-flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .description {
-  display: flexbox;
-  flex-direction: column;
+  align-items: left;
+  width: 11rem;
 }
 
 .currency-flag {
@@ -62,9 +52,12 @@ export default {
   border-radius: 5px;
 }
 
-.container {
+.flag {
   align-items: center;
   justify-content: center;
+}
+
+.container {
   display: flex;
   padding: 0.25rem;
 }

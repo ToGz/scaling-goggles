@@ -15,11 +15,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.input-field {
+  padding: 0.25rem;
+}
+
 input {
   outline: 0;
   border-width: 0 0 1px;
   border-color: $material_orange_light;
   text-align: right;
+  width: 9.5rem;
 }
 input:focus {
   border-color: $material_orange_dark;

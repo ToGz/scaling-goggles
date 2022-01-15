@@ -6,7 +6,7 @@
         :currencyName="availableCurrencies[baseCurrencyCode]?.description ?? ''"
       />
       <CurrencyInputField v-model:amount="baseCurrencyAmount" />
-    </div>
+      
     <!-- <h1>Vue Popups</h1>
     <button @click="() => TogglePopup('buttonTrigger')">Open Popup</button>
     <Popup
@@ -15,6 +15,7 @@
     >
       <h2>My Button Popup</h2>
     </Popup> -->
+    </div>
     <div class="divider"></div>
 
     <div class="rates" v-for="item in selectedCurrencies" :key="item">

@@ -1,7 +1,7 @@
 <template>
   <div class="currencyField">
     <currency-info :currencyCode="currencyCode" :currencyName="currencyName" />
-    <div class="value-field">196.15</div>
+    <div class="value-field">{{currencyAmount}}</div>
   </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
   props: {
       currencyCode: String,
       currencyName: String,
+      currencyAmount: Number,
   },
 };
 </script>

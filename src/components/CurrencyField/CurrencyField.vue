@@ -1,7 +1,7 @@
 <template>
   <div class="currencyField">
     <currency-info :currencyCode="currencyCode" :currencyName="currencyName" />
-    <div class="value-field">{{currencyAmount}}</div>
+    <div class="value-field">{{Number(Math.round(currencyAmount + 'e+2') + 'e-2')}}</div>
   </div>
 </template>
 

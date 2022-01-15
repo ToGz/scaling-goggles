@@ -3,7 +3,7 @@
     <input
       :value="amount"
       @input="(event) => $emit('update:amount', event.target.value)"
-      type="text"
+      type="number"
     />
   </div>
 </template>

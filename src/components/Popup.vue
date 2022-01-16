@@ -18,14 +18,17 @@ export default {
   props: ["TogglePopup", "availableCurrencies"],
   components: { Dropdown },
   methods: {
-    selectedCode: String,
+    selectedCode: "",
 
     passEvent(code) {
       this.selectedCode = code;
     },
 
     Submitt() {
-      if(this.selectedCode != undefined) this.$emit('currency:selected', this.selectedCode);
+      if(this.selectedCode) {
+        this.$emit('currency:selected', this.selectedCode);
+      }
+        
     }
   },
 };

@@ -39,6 +39,7 @@
       :availableCurrencies="availableCurrencies"
       v-on:currency:selected="
         (currency) => {
+          replaceField(currency, this.baseCurrencyCode);
           this.baseCurrencyCode = currency;
         }
       "
@@ -46,7 +47,9 @@
     <Popup
       v-if="popupTriggers.addCurrencyTrigger"
       :TogglePopup="() => TogglePopup('addCurrencyTrigger')"
-      :availableCurrencies="availableCurrencies"
+      :availableCurrencies="Object.values(this.availableCurrencies).filter(currency => 
+          this.selectedCurrencies.indexOf(currency.code) == -1
+        )"
       v-on:currency:selected="
         (currency) => {
           this.selectedCurrencies.push(currency);
@@ -75,8 +78,14 @@ export default {
       availableCurrencies: [],
       currencyRates: [],
 
-      removeField: (item) => {
-        this.selectedCurrencies.splice(item, 1);
+      removeField: (itemIndex) => {
+        this.selectedCurrencies.splice(itemIndex, 1);
+      },
+
+      replaceField: (oldItem, newItem) => {
+        this.selectedCurrencies = this.selectedCurrencies.map(element => {
+          return (element == oldItem)? newItem : element;
+        });
       },
     };
   },

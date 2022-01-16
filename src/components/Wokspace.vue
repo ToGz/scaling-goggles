@@ -26,9 +26,7 @@
     </div>
 
     <div class="field-prop">
-      <button
-        @click="() => TogglePopup('addCurrencyTrigger')"
-      >
+      <button @click="() => TogglePopup('addCurrencyTrigger')">
         <img src="./add_black_24dp.svg" alt="Add" />
       </button>
     </div>
@@ -43,20 +41,24 @@
           this.baseCurrencyCode = currency;
         }
       "
-    ><h4>Change base currency</h4></Popup>
+      ><h4>Change base currency</h4></Popup
+    >
 
     <Popup
       v-if="popupTriggers.addCurrencyTrigger"
       :TogglePopup="() => TogglePopup('addCurrencyTrigger')"
-      :availableCurrencies="Object.values(this.availableCurrencies).filter(currency => 
-          this.selectedCurrencies.indexOf(currency.code) == -1
-        )"
+      :availableCurrencies="
+        Object.values(this.availableCurrencies).filter(
+          (currency) => this.selectedCurrencies.indexOf(currency.code) == -1
+        )
+      "
       v-on:currency:selected="
         (currency) => {
           this.selectedCurrencies.push(currency);
         }
       "
-    ><h4>Add new currency</h4></Popup>
+      ><h4>Add new currency</h4></Popup
+    >
   </div>
 </template>
 
@@ -75,7 +77,7 @@ export default {
     return {
       baseCurrencyCode: String,
       baseCurrencyAmount: Number,
-      selectedCurrencies: ["CAD", "USD", "HUF", "PLN"],
+      selectedCurrencies: [],
       availableCurrencies: [],
       currencyRates: [],
 
@@ -84,8 +86,8 @@ export default {
       },
 
       replaceField: (oldItem, newItem) => {
-        this.selectedCurrencies = this.selectedCurrencies.map(element => {
-          return (element == oldItem)? newItem : element;
+        this.selectedCurrencies = this.selectedCurrencies.map((element) => {
+          return element == oldItem ? newItem : element;
         });
       },
     };
@@ -109,14 +111,18 @@ export default {
 
   methods: {
     getAvailableSymbols: () =>
-      fetch("https://api.exchangerate.host/symbols").then((response) =>
-        response.json()
-      ),
+      fetch("https://api.exchangerate.host/symbols")
+        .catch(() => {
+          alert("There was an an retrieving currencies. Try refreshing the site");
+        })
+        .then((response) => response.json()),
 
     getRatesForCurrency: (currency) =>
-      fetch("https://api.exchangerate.host/rates?base=" + currency).then(
-        (response) => response.json()
-      ),
+      fetch("https://api.exchangerate.host/rates?base=" + currency)
+        .catch(() => {
+           alert("There was an an retrieving rates. Try refreshing the site");
+        })
+        .then((response) => response.json()),
   },
 
   setup() {

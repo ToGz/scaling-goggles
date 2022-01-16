@@ -1,5 +1,9 @@
 <template>
   <main-workspace />
+  <div class="desc">
+    <h6>scaling-googles</h6>
+    <h6>109261</h6>
+  </div>
 </template>
 
 <script>
@@ -19,6 +23,11 @@ export default {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background: $material_green;
+}
+
+.desc {
+  text-align: center;
 }
 </style>

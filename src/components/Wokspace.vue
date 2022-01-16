@@ -10,7 +10,7 @@
       <CurrencyInputField v-model:amount="baseCurrencyAmount" />
 
       <button @click="() => TogglePopup('baseCurrencyTrigger')">
-        <img src="./edit_black_24dp.svg" alt="My Happy SVG" />
+        <img src="./edit_black_24dp.svg" alt="change" />
       </button>
     </div>
 
@@ -29,7 +29,7 @@
       <button
         @click="() => TogglePopup('addCurrencyTrigger')"
       >
-        <img src="./add_black_24dp.svg" alt="My Happy SVG" />
+        <img src="./add_black_24dp.svg" alt="Add" />
       </button>
     </div>
 
@@ -43,7 +43,8 @@
           this.baseCurrencyCode = currency;
         }
       "
-    />
+    ><h4>Change base currency</h4></Popup>
+
     <Popup
       v-if="popupTriggers.addCurrencyTrigger"
       :TogglePopup="() => TogglePopup('addCurrencyTrigger')"
@@ -55,7 +56,7 @@
           this.selectedCurrencies.push(currency);
         }
       "
-    />
+    ><h4>Add new currency</h4></Popup>
   </div>
 </template>
 

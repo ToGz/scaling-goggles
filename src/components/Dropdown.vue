@@ -1,6 +1,7 @@
 <template>
     <div>
         <vue-select
+            class="selekt"
             v-model="value"
             :options="options"
             label-by="description"
@@ -37,3 +38,9 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.selekt {
+  width: 12rem;
+  margin-bottom: 0.25rem;
+}
+</style>

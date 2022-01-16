@@ -1,12 +1,21 @@
 <template>
   <div class="popup">
     <div class="popup-inner">
-      <Dropdown 
-        :possibleCurrencies="availableCurrencies" 
-        v-on:currency:selected="(currencyCode) => {passEvent(currencyCode)}" 
+      <slot></slot>
+      <Dropdown
+        :possibleCurrencies="availableCurrencies"
+        v-on:currency:selected="
+          (currencyCode) => {
+            passEvent(currencyCode);
+          }
+        "
       />
-      <button class="popup-close" @click="TogglePopup()">Close</button>
-      <button class="popup-close" @click="TogglePopup(), Submitt()">Ok</button>
+      <button class="popup-close" @click="TogglePopup()">
+        <img src="./close_black_24dp.svg" alt="close" />
+      </button>
+      <button class="popup-close" @click="TogglePopup(), Submitt()">
+        <img src="./done_black_24dp.svg" alt="ok" />
+      </button>
     </div>
   </div>
 </template>
@@ -25,11 +34,10 @@ export default {
     },
 
     Submitt() {
-      if(this.selectedCode) {
-        this.$emit('currency:selected', this.selectedCode);
+      if (this.selectedCode) {
+        this.$emit("currency:selected", this.selectedCode);
       }
-        
-    }
+    },
   },
 };
 </script>
@@ -43,6 +51,7 @@ export default {
   bottom: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
   display: flex;
   align-items: center;

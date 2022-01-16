@@ -9,10 +9,11 @@
       />
       <CurrencyInputField v-model:amount="baseCurrencyAmount" />
 
-      <button @click="() => TogglePopup('baseCurrencyTrigger')">Change Base</button>
-      <button @click="() => TogglePopup('addCurrencyTrigger')">Add Currecy</button>
+      <button @click="() => TogglePopup('baseCurrencyTrigger')">
+        <img src="./edit_black_24dp.svg" alt="My Happy SVG" />
+      </button>
     </div>
-    
+
     <div class="divider"></div>
 
     <div class="rates" v-for="(item, index) in selectedCurrencies" :key="item">
@@ -23,21 +24,36 @@
         v-on:field:remove="removeField(index)"
       />
     </div>
-        <Popup
-        v-if="popupTriggers.baseCurrencyTrigger"
-        :TogglePopup="() => TogglePopup('baseCurrencyTrigger')"
-        :availableCurrencies="availableCurrencies"
-        v-on:currency:selected="(currency) => { this.baseCurrencyCode = currency }"
-      />
-       <Popup
-        v-if="popupTriggers.addCurrencyTrigger"
-        :TogglePopup="() => TogglePopup('addCurrencyTrigger')"
-        :availableCurrencies="availableCurrencies"
-        v-on:currency:selected="(currency) => { this.selectedCurrencies.push(currency) }"
-      />
-  </div>
 
-  
+    <div class="field-prop">
+      <button
+        @click="() => TogglePopup('addCurrencyTrigger')"
+      >
+        <img src="./add_black_24dp.svg" alt="My Happy SVG" />
+      </button>
+    </div>
+
+    <Popup
+      v-if="popupTriggers.baseCurrencyTrigger"
+      :TogglePopup="() => TogglePopup('baseCurrencyTrigger')"
+      :availableCurrencies="availableCurrencies"
+      v-on:currency:selected="
+        (currency) => {
+          this.baseCurrencyCode = currency;
+        }
+      "
+    />
+    <Popup
+      v-if="popupTriggers.addCurrencyTrigger"
+      :TogglePopup="() => TogglePopup('addCurrencyTrigger')"
+      :availableCurrencies="availableCurrencies"
+      v-on:currency:selected="
+        (currency) => {
+          this.selectedCurrencies.push(currency);
+        }
+      "
+    />
+  </div>
 </template>
 
 <script>
@@ -48,7 +64,7 @@ import CurrencyInputField from "./CurrencyField/CurrencyInputField.vue";
 import Popup from "./Popup.vue";
 
 export default {
-  components: { CurrencyField, CurrencyInfo, CurrencyInputField, Popup, },
+  components: { CurrencyField, CurrencyInfo, CurrencyInputField, Popup },
   name: "MainWorkspace",
   props: {},
   data: function () {
@@ -60,8 +76,8 @@ export default {
       currencyRates: [],
 
       removeField: (item) => {
-        this.selectedCurrencies.splice(item, 1)
-      }
+        this.selectedCurrencies.splice(item, 1);
+      },
     };
   },
 
@@ -96,7 +112,7 @@ export default {
   setup() {
     const popupTriggers = ref({
       baseCurrencyTrigger: false,
-      addCurrencyTrigger: false
+      addCurrencyTrigger: false,
     });
     const TogglePopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
@@ -112,11 +128,16 @@ export default {
 
 <style lang="scss" scoped>
 .workspace {
-  min-width: 19rem;
-  width: 66vw;
-  height: 33vh;
+  width: 26.5rem;
   background-color: white;
   border-radius: 5px;
+}
+
+.field-prop {
+  text-align: right;
+  width: 26.3rem;
+  height: 2.2rem;
+  margin-bottom: 3px;
 }
 
 .divider {
